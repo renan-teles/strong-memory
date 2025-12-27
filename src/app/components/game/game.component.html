@@ -1,0 +1,101 @@
+@switch(componentState()){
+    @case('end'){
+        <section class="p-5 rounded bg-white shadow text-center">
+            <span class="h1">🏆</span>
+            <h4 class="mt-2">Parabéns! Você chegou ao final</h4>
+            <h5>Pontuação Total: {{ score() }}</h5>
+            <a class="btn-gradient-purple-orange mt-3" routerLink="/start">
+                Voltar ao início
+            </a>
+        </section>
+    }
+
+    @case('no-time-left'){
+        <section class="p-4 bg-white p-lg-5 rounded shadow">
+            <div class="row text-center">
+                <div class="row flex-column g-2">
+                    <span class="h1 text-danger"><i class="bi-x-circle-fill"></i></span>
+                    <h3>Tempo Esgotado.</h3>
+                    <div class="col-12">
+                        <button 
+                            (click)="reset()" 
+                            class="btn btn-danger"
+                        >
+                            <i class="bi-arrow-clockwise me-2"></i>Tentar Novamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 start mt-5">
+                <app-words-list />
+            </div>
+        </section>
+    }
+
+    @case('show-game'){
+        <section class="p-4 p-lg-5 bg-white rounded shadow ">
+
+            <div class="row justify-content-between mb-3">
+                <div class="col-12 text-end mb-3">
+                    <button 
+                        (click)="reloadPage()" 
+                        class="btn text-danger text-center"
+                        [class.d-none]="hasUserState() && !isCorrect()"
+                    >
+                        <i class="bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+                <div class="text-center col-12 col-sm-6 text-sm-start mb-3 mb-sm-0">
+                    @if (feedback()) {
+                        <h5 [class]="feedback()!.class">
+                            <i class="{{ feedback()!.icon }} me-2"></i>
+                            {{ feedback()!.text }}
+                        </h5>
+                    }
+                </div>
+                <div class="text-center col-12 col-sm-6 text-sm-end">
+                    <span class="h5">Pontuação: {{ score() }}</span>
+                </div>
+            </div>
+
+            @if(!this.showResult()){
+                <div class="col-12 d-block mb-4">
+                    <app-timer
+                        [initialTime]="time()"
+                        (finished)="onTimerFinished()"
+                    />
+                </div>
+            }
+    
+            @if (showResult() || answer()) {
+                <app-user-words-form
+                    [title]="showResult()? 'Palavras digitadas:' : 'Digite as palavras da lista:'"
+                    [compare]="showResult()"
+                    [numberInputs]="currentWordsLength"
+                    (submitWords)="checkCorrect($event)"
+                />
+            }
+
+            @if (!this.answer() || this.showResult()) {
+                <div class="col-12" [class.mt-5]="showResult()">
+                    <app-words-list [compare]="showResult()"/>
+                </div>
+            }
+
+            @if (btnFeedback()) {
+                <div class="text-end mt-3">
+                    <button 
+                        class="btn-gradient-purple-orange mt-3" 
+                        (click)="isCorrect()? next() : reset()"
+                    >
+                        <i 
+                            class=" {{ btnFeedback()!.icon }} me-1"
+                        ></i>
+                        {{ btnFeedback()!.text }}
+                    </button>
+                </div>
+            }
+        </section>
+    }
+}

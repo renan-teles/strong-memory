@@ -1,0 +1,17 @@
+<div class="col-12 d-block mb-4">
+  <div
+    class="progress"
+    role="progressbar"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [attr.aria-valuenow]="percent()"
+  >
+    <div
+      class="progress-bar"
+      [style.width]="percent() + '%'"
+      [style.backgroundColor]="color()"
+    >
+      {{ time() }}s
+    </div>
+  </div>
+</div>

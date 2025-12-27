@@ -1,0 +1,12 @@
+.nav-link{
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid transparent !important;
+    color: var(--purple);
+}
+
+.nav-link:hover,
+.nav-link.active{
+    color: var(--purple) !important;
+    border-bottom: 1px solid var(--orange) !important;
+}
