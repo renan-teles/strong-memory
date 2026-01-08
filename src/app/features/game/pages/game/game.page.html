@@ -1,0 +1,15 @@
+@if(loading()){
+  <app-loading-words />
+}
+
+@else {
+  <div class="invisible py-5"></div>
+  <div class="col-12 mt-4 pb-5">
+    @if(error()){
+      <app-error />
+    }
+    @else {
+      <app-words-game [words]="words()" />
+    }
+</div>
+}

@@ -1,0 +1,26 @@
+<div class="col-12">
+    @if(mode === 'edit' && control){
+        <input
+            type="text"
+            class="form-control input-word"
+            [formControl]="control"
+            [placeholder]="placeholder"
+            appWordValidation
+            [compare]="compare()"
+            [isEqual]="isEqual()"
+            [touched]="control.touched"
+            [invalidControl]="control.invalid"
+        />
+    }
+    @else{
+        <input
+            type="text"
+            class="form-control input-word"
+            [value]="value"
+            disabled
+            appWordValidation
+            [compare]="compare()"
+            [isEqual]="isEqual()"
+        />
+    }
+</div>  

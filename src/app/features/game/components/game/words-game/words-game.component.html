@@ -1,0 +1,9 @@
+@switch(gameState()){
+    @case('end'){
+        <app-end-game />
+    }
+
+    @case('show-game'){
+        <app-round-game (stateGame)="setState($event)" [words]="words" />
+    }
+}

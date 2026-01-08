@@ -1,7 +1,7 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SoundService } from './services/sound/sound.service';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { SoundService } from './core/services/sound/sound.service';
 
 @Component({
   selector: 'app-root',
