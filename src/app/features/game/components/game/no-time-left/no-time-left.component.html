@@ -1,0 +1,20 @@
+<section class="p-4 bg-white rounded shadow">
+    <div class="row text-center">
+        <div class="row flex-column g-2">
+            <span class="h1 text-danger"><i class="bi-x-circle-fill"></i></span>
+            <h3>Tempo Esgotado.</h3>
+            <div class="col-12">
+                <button 
+                    (click)="onReset()" 
+                    class="btn btn-danger"
+                >
+                    <i class="bi-arrow-clockwise me-2"></i>Tentar Novamente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 start mt-5">
+        <app-words-list />
+    </div>
+</section>
