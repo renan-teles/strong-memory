@@ -1,3 +1,8 @@
 .progress-bar {
   transition: width 1s linear, background-color 0.3s ease;
 }
+
+.bg-gray{
+  background-color:  rgb(83, 82, 82);
+}
+

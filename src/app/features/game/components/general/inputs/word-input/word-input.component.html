@@ -3,6 +3,7 @@
         <input
             type="text"
             class="form-control input-word"
+            [class]="themClass()"
             [formControl]="control"
             [placeholder]="placeholder"
             appWordValidation
@@ -16,6 +17,7 @@
         <input
             type="text"
             class="form-control input-word"
+            [class]="themClass()"
             [value]="value"
             disabled
             appWordValidation

@@ -1,4 +1,9 @@
-<form class="p-4 rounded shadow bg-white" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form 
+    class="p-4 rounded shadow" 
+    [class]="themeClass()" 
+    [formGroup]="form" 
+    (ngSubmit)="onSubmit()"
+>
     <div class="row g-4">
         <div class="col-12 text-center">
             <div>
@@ -9,10 +14,11 @@
         </div>
 
         <div class="col-12">
-            <label class="form-label" for="select_word_category">Categoria de Palavras:</label>
+            <label class="form-label" for="select_word_category">Escolha a Categoria de Palavras:</label>
             <select 
                 class="form-control" 
                 id="select_word_category" 
+                [class]="themeClass()"
                 formControlName="category"
             >
                 @for(c of categories; track $index){

@@ -1,32 +1,31 @@
 @if(noTimeLeft()){
-    <app-no-time-left (reset)="reset()" />
+    <app-no-time-left />
 }
 
 @else {
-    <section class="col-12 p-4 bg-white rounded shadow ">
+    <section class="col-12 p-4 rounded shadow" [class]="themeClass()">
         <div class="row justify-content-between mb-3">
-      
-            <div class="col-12 text-end mb-3">
+            <div class="text-start col-6">
+                <span class="h5">Pontuação: {{ score() }}</span>
+            </div>
+
+            <div class="col-6 text-end">
                 <button 
                     (click)="reloadPage()" 
-                    class="btn text-danger text-center"
+                    class="btn btn-danger btn-sm text-center"
                     [class.d-none]="hasUserState() && !isCorrect()"
                 >
                     <i class="bi-arrow-clockwise"></i>
                 </button>
             </div>
 
-            <div class="text-center col-12 col-sm-6 text-sm-start mb-3 mb-sm-0">
+            <div class="text-center col-12 text-sm-start mt-4">
                 @if (hasUserState()) { <app-feedback /> }
-            </div>
-                  
-            <div class="text-center col-12 col-sm-6 text-sm-end">
-                <span class="h5">Pontuação: {{ score() }}</span>
             </div>
         </div>
 
         @if(!showResult()){
-            <div class="col-12 d-block mb-4">
+            <div class="col-12 d-block mb-5">
                 <app-timer
                     [initialTime]="time()"
                     (finished)="onTimerFinished()"

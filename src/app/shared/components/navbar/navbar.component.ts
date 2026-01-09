@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,4 +9,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  private readonly theme = inject(ThemeService);
+  themeClass = this.theme.themeClass;
+  themeIcon = this.theme.themeIcon;
+  isDark = this.theme.isDark;
+
+  toggleTheme(): void {
+    this.theme.toggleTheme();
+  }
+}

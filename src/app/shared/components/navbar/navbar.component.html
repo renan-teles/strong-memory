@@ -1,4 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+<nav 
+  class="navbar navbar-expand-sm navbar-dark shadow-sm fixed-top"
+  [class]="themeClass()"
+  [class.navbar-dark]="isDark()"
+>
   <div class="container-lg">
     <a 
       class="navbar-brand" 
@@ -22,7 +26,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto gap-2">
         <li class="nav-item">
           <a 
             class="nav-link" 
@@ -31,6 +35,11 @@
           >
             <i class="bi-house me-2"></i>Início
           </a>
+        </li>
+         <li class="nav-item d-flex justify-content-end justify-content-sm-center">
+          <button class="btn" [class]="themeClass()" (click)="toggleTheme()" style="border: none">
+            <i [class]="themeIcon()"></i>
+          </button>
         </li>
       </ul>
     </div>

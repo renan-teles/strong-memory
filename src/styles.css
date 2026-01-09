@@ -1,3 +1,4 @@
+/*HTML - GENERAL*/
 html, body {
   height: 100%;
   margin: 0;
@@ -9,19 +10,52 @@ html, body {
   --gradientpurpleorange: linear-gradient(120deg, #9c04fc 0%, #ffab40 100%);
 }
 
+/* THEME */
 .bg-white {
-  background-color: white;
-}
-
-.bg-gray{
-  min-height: 100dvh;
-  background-color: gray;
+  background-color: white !important;
 }
 
 .bg-gradient-purple-orange{
   background: var(--gradientpurpleorange);
 }
 
+.text-bg-black {
+  background-color: black;
+  color: white;
+}
+
+.text-bg-white {
+  background-color: white!important;
+  color: black!important;
+}
+
+.text-bg-dark::placeholder {
+  color: white;
+}
+
+.text-bg-dark {
+  border-color: black;
+}
+
+.color-purple {
+  color: var(--purple);
+}
+
+.color-orange {
+  color: var(--orange);
+}
+
+
+/* INPUTS */
+.is-invalid {
+  border-color: red !important;
+}
+.is-valid {
+  border-color: green !important;
+}
+
+
+/* BTNS */
 .btn-gradient-purple-orange {
   background: var(--gradientpurpleorange);
   border: none;
@@ -35,17 +69,5 @@ html, body {
   border-radius: 5px;
   font-weight: 500;
   font-size: 17px;
-}
-
-.color-purple {
-  color: var(--purple);
-}
-
-.color-orange {
-  color: var(--orange);
-}
-
-.min-vh-90{
-  min-height: 90dvh;
 }
 

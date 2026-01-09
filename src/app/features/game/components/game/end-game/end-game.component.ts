@@ -1,6 +1,7 @@
 import { Component, inject, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ScoreFacade } from '../../../facade/score/score.facade';
+import { ThemeService } from '../../../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-end-game',
@@ -10,6 +11,9 @@ import { ScoreFacade } from '../../../facade/score/score.facade';
 })
 export class EndGameComponent implements OnDestroy{
   private readonly scoreFacade = inject(ScoreFacade);
+
+  private readonly theme = inject(ThemeService);
+  themeClass = this.theme.themeClass;
 
   score = this.scoreFacade.score;
 
