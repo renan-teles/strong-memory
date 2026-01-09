@@ -1,6 +1,6 @@
 # StrongMemory
 
-Aplicação Angular projetada para fortalecer e exercitar a memória e o foco de seus usuários.
+Aplicação Angular projetada para fortalecer e exercitar a memória e o foco de seus usuários através de um mini-jogo semelhante ao jogo da memória.
 
 <!--
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.

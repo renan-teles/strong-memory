@@ -38,7 +38,7 @@
             <app-user-words-form
                 [title]="title()"
                 [compareWords]="showResult()"
-                [numberInputs]="lengthCurrentWords"
+                [numberInputs]="roundFacade.lengthCurrentWords"
                 (submitWords)="checkCorrect($event)"
             />
         }
@@ -53,7 +53,7 @@
             <div class="text-end mt-3">
                 <button 
                     class="btn-gradient-purple-orange mt-3" 
-                    (click)="isCorrect()? next() : reset()"
+                    (click)="btnFeedback()!.action()"
                 >
                     <i class=" {{ btnFeedback()!.icon }} me-1"></i>
                     {{ btnFeedback()!.text }}
