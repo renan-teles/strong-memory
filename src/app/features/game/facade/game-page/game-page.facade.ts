@@ -11,7 +11,7 @@ export class GamePageFacade {
   private readonly api = inject(RandomWordApiService);
   private readonly categories = inject(WordCategoryService);
 
-  private readonly WORDS_NUMBER = 25;
+  private readonly WORDS_NUMBER = 2;
 
   readonly loadingWords = signal(false);
   readonly errorGetWords = signal(false);
