@@ -3,6 +3,7 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { WordCategoryService } from '../../../../services/word-category/word-category.service';
 import { IWordCategory } from '../../../../model/word-category.model';
+import { ThemeService } from '../../../../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-start-form',
@@ -13,6 +14,9 @@ import { IWordCategory } from '../../../../model/word-category.model';
 })
 export class StartFormComponent {
   @Output() category = new EventEmitter<string>();
+
+  private readonly theme = inject(ThemeService);
+  themeClass = this.theme.themeClass;
 
   private readonly categoryService = inject(WordCategoryService);
   private readonly fb = inject(FormBuilder);

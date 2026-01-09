@@ -1,10 +1,11 @@
-<div class="col-12 d-block mb-4">
+<div class="col-12 d-block">
   <div
     class="progress"
     role="progressbar"
     aria-valuemin="0"
     aria-valuemax="100"
     [attr.aria-valuenow]="percent()"
+    [class.bg-gray]="isDark()"
   >
     <div
       class="progress-bar"

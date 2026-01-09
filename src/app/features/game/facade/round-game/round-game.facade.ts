@@ -75,6 +75,7 @@ export class RoundGameFacade {
     if (!this.wordsService.isCorrect()) {
       this.userFacade.setToWrong();
       this.sounds.playSound('wrong');
+      this.timerFacade.resetTimer();
       return;
     }
 

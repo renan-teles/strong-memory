@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, output, signal, effect, OnDestroy, input,} from '@angular/core';
 import { SoundService } from '../../../../../core/services/sound/sound.service';
+import { ThemeService } from '../../../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-timer',
@@ -12,6 +13,9 @@ import { SoundService } from '../../../../../core/services/sound/sound.service';
 export class TimerComponent implements OnDestroy {
   initialTime = input.required<number>();
   finished = output<void>();
+
+  private readonly theme = inject(ThemeService);
+  isDark = this.theme.isDark;
   
   private readonly sounds = inject(SoundService);
   private readonly SOUND_NAME = 'time-running-out';
@@ -32,6 +36,7 @@ export class TimerComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
+    this.sounds.stopSound(this.SOUND_NAME);
   }
 
   private resetTimer(): void {

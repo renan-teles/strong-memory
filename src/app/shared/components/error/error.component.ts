@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ThemeService } from '../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-error',
@@ -7,4 +8,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './error.component.html',
   styleUrl: './error.component.css',
 })
-export class ErrorComponent {}
+export class ErrorComponent {
+  private readonly theme = inject(ThemeService);
+  themeClass = this.theme.themeClass;
+}

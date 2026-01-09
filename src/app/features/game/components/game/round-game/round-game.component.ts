@@ -8,6 +8,7 @@ import { WordsListComponent } from '../../general/lists/words-list/words-list.co
 import { UserWordsFormComponent } from '../../general/forms/user-words-form/user-words-form.component';
 import { FeedbackComponent } from '../../general/feedback/feedback.component';
 import { RoundGameFacade } from '../../../facade/round-game/round-game.facade';
+import { ThemeService } from '../../../../../core/services/theme-service/theme.service';
 
 @Component({
   selector: 'app-round-game',
@@ -27,8 +28,10 @@ export class RoundGameComponent implements OnInit, OnDestroy{
   @Input({ required: true }) words!: IWord[];
 
   readonly roundFacade = inject(RoundGameFacade);
-  
   @Output() stateGame = this.roundFacade.stateGame;
+
+  private readonly theme = inject(ThemeService);
+  themeClass = this.theme.themeClass;
 
   showResult = this.roundFacade.showResult;
   isCorrect = this.roundFacade.isCorrect;
